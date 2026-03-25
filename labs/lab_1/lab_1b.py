@@ -42,13 +42,43 @@ def main():
     print(f"===== Simple Calculator =====")
 
     # Ask the user for sample input    
-    num1 = float(input("Enter the first number: "))
-    num2 = float(input("Enter the second number: "))
-    operation = input("Enter the operation (add, subtract, multiply, divide): ").strip().lower()
+    num1 = checkInputNumber("Enter the first number: ")
+    num2 = checkInputNumber("Enter the second number: ")
+    operation = checkOperator()
 
     # Perform the calculation and display the result
     result = simple_calculator(operation, num1, num2)
     print(f"The result of {operation}ing {num1} and {num2} is: {result}")
+
+
+def checkInputNumber(prompt):
+    while True:
+        try:
+            num=float(input(prompt))
+            return num
+        except:
+            print("bad, enter a real number")
+
+def checkOperator():
+    while True:
+        try:
+            num=input("Enter the operation (add, subtract, multiply, divide): ")
+            num=num.strip().lower()
+            
+            if str(num)=="add":
+                return num
+            elif str(num)=="subtract":
+                return num
+            elif str(num)=="multiply":
+                return num
+            elif str(num)=='divide':
+                return num
+            
+        except Exception as e:
+            print("Bad, enter a real operator")
+            print(e)
+            
+
 
 
 if __name__ == "__main__":
